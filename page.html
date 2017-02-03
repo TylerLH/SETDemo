@@ -1,0 +1,49 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sign up for Catflix</title>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/pure-min.css" integrity="sha384-UQiGfs9ICog+LwheBSRCt1o5cbyKIHbwjWscjemyBMT9YCUMZffs6UqUTd0hObXD" crossorigin="anonymous" />
+  </head>
+  <body>
+    <style media="screen">
+      .body {
+        background-color: #fefefe;
+      }
+      .container {
+        padding: 20px;
+      }
+    </style>
+    <div class="container">
+    <h1>Sign up for Catflix</h1>
+    <form id="register" class="pure-form pure-form-aligned">
+      <fieldset>
+        <div class="pure-control-group">
+          <label for="name">Email Address</label>
+          <input name="name" type="text" required>
+        </div>
+        <div class="pure-control-group">
+          <label for="password">Password</label>
+          <input name="password" type="password" required>
+        </div>
+        <button type="submit" class="pure-button pure-button-primary button-large">Create my account</button>
+        <br/>
+        <br/>
+        <button onclick="cancel()" class="pure-button button-large">Cancel</button>
+      </fieldset>
+    </form>
+    </div>
+    <script type="text/javascript">
+      var form = document.getElementById('register');
+      form.onsubmit = function(e) {
+        e.preventDefault();
+        window.postMessage('closeWebview');
+      }
+
+      function cancel(e) {
+        e.preventDefault();
+        window.postMessage('closeWebview');
+      }
+    </script>
+  </body>
+</html>
